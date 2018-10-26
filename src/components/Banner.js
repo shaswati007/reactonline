@@ -28,7 +28,7 @@ import {
   class Banner extends Component {
     constructor(props) {
       super(props);
-      this.props = { activeIndex: 0 };
+      this.state = { activeIndex: 0 };
       this.next = this.next.bind(this);
       this.previous = this.previous.bind(this);
       this.goToIndex = this.goToIndex.bind(this);
@@ -46,13 +46,13 @@ import {
   
     next() {
       if (this.animating) return;
-      const nextIndex = this.props.activeIndex === items.length - 1 ? 0 : this.props.activeIndex + 1;
+      const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
       this.setState({ activeIndex: nextIndex });
     }
   
     previous() {
       if (this.animating) return;
-      const nextIndex = this.props.activeIndex === 0 ? items.length - 1 : this.props.activeIndex - 1;
+      const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
       this.setState({ activeIndex: nextIndex });
     }
   
@@ -62,7 +62,7 @@ import {
     }
   
     render() {
-      const { activeIndex } = this.props;
+      const { activeIndex } = this.state;
   
       const slides = items.map((item) => {
         return (

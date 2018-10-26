@@ -16,7 +16,7 @@ class SubMenu extends Component {
                         <a className="dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{sub.name}</a>
 
                         {
-                            <ul className="navbarDropdown2" aria-labelledby="navbarDropdown2">
+                            <ul className="" aria-labelledby="navbarDropdown2">
                                 {sub.catalogGroupView !== undefined && <SubListMenu category={sub.identifier} id={sub.uniqueID} subBelow={sub.catalogGroupView} />}
                             </ul>
 
