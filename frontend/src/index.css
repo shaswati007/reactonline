@@ -1,0 +1,48 @@
+/*  Navigation CSS Starts */
+
+/* .navbar-nav:hover .secondDropdown{
+  display:block;
+}
+
+
+.navbar-nav .secondDropdown{
+  display:none;
+}
+
+
+.navbarDropdown2{
+  display:none;
+}
+
+
+.dropdown-toggle:hover .navbarDropdown2 {
+  display: block;
+}
+
+.dropdown-item:hover ul{
+     display: block;
+} */
+/*  Navigation CSS End */
+
+
+
+
+.pdp{
+
+  background-color: #ddd;
+ }
+
+
+ plpImage{
+   width:50%;
+ }
+
+ .pdpImage{
+   width:84%;
+ }
+
+.carousel-item img{ 
+    width:100%;
+  }
+
+  
