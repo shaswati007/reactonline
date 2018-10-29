@@ -19,7 +19,7 @@ export const getNavbar = () => {
 };
 
 export const getProducts = (id) => {
-    return axios.get(BASE_API_URL + '/category/'+id).then(res => {
+    return axios.get(BASE_API_URL + '/category/' + id).then(res => {
         return {
             type: GET_PRODUCTS,
             payload: res.data.express.catalogEntryView
@@ -28,7 +28,7 @@ export const getProducts = (id) => {
 };
 
 export const getProductDetail = (id) => {
-    return axios.get(BASE_API_URL + '/product/'+id).then(res => {
+    return axios.get(BASE_API_URL + '/product/' + id).then(res => {
         return {
             type: GET_PRODUCT_DETAIL,
             payload: res.data.express.catalogEntryView
@@ -38,14 +38,14 @@ export const getProductDetail = (id) => {
 
 export function addToCart(item) {
     return {
-        type: 'ADD',
-        item: item
+        type: ADD_CART,
+        payload: item
     };
-  }
-  
-  export function removeFromCart(item) {
+}
+
+export function removeFromCart(cartList, id) {
     return {
-        type: 'REMOVE',
-        item: item
+        type: REMOVE_CART,
+        payload: cartList.filter(i => i.uniqueID != id)
     };
-  }
+}

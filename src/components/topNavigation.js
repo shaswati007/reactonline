@@ -46,7 +46,7 @@ class Navigation extends Component {
                     </ul>
 
                 </div>
-                <div className="shopping-cart"><i class="fas fa-shopping-cart user-account-logo"></i><Link to={`/cart`}>Cart </Link></div>
+                <div className="shopping-cart"><i className="fas fa-shopping-cart user-account-logo"></i><Link to={`/cart`}>Cart </Link></div>
             </nav>
 
         )

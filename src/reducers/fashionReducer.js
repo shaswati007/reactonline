@@ -1,9 +1,6 @@
-import {GET_NAVBAR, GET_PRODUCTS} from "../actions";
-import {GET_PRODUCT_DETAIL} from "../actions/index";
-import {ADD_CART} from "../actions/index";
-import {REMOVE_CART}from "../actions/index";
+import {GET_NAVBAR, GET_PRODUCTS, GET_PRODUCT_DETAIL, ADD_CART, REMOVE_CART} from "../actions";
 
-const INITIAL_STATE = {navbar: [], products: [], productDetail:[], cartDetail:[]};
+const INITIAL_STATE = {navbar: [], products: [], productDetail: [], cartDetail: []};
 
 export default function (state = INITIAL_STATE, action) {
     switch (action.type) {
@@ -24,16 +21,17 @@ export default function (state = INITIAL_STATE, action) {
             };
 
         case ADD_CART:
-        return{
-            ...state,
-            cartDetail: action.payload
-        };
+            return {
+                ...state,
+                cartDetail: [...state.cartDetail, action.payload]
+            };
 
         case REMOVE_CART:
-        
-        const firstMatchIndex = state.indexOf(action.payload)
-        return state.filter((item, index) => index!==firstMatchIndex) 
-       
+            return {
+                ...state,
+                cartDetail: action.payload
+            }
+
         default:
             return state;
     }
