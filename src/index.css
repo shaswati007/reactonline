@@ -5,7 +5,20 @@
 
 /*  Navigation CSS End */
 
+img{ 
+  width:100%;
+}
 
+
+.shopping-cart{
+  color:#ffff;
+  border-left: 1px solid white;
+  padding-left:10px;
+}
+
+.user-account-logo{
+  margin-right:5px;
+}
 
 
 .pdp{
@@ -15,8 +28,3 @@
 
 }
 
-img{ 
-    width:100%;
-  }
-
-  

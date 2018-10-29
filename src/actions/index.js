@@ -3,6 +3,8 @@ import axios from 'axios';
 export const GET_NAVBAR = "GET_NAVBAR";
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const GET_PRODUCT_DETAIL = "GET_PRODUCT_DETAIL";
+export const ADD_CART = "ADD_CART";
+export const REMOVE_CART = "REMOVE_CART"
 
 export const BASE_API_URL = "http://localhost:3030";
 
@@ -33,3 +35,17 @@ export const getProductDetail = (id) => {
         };
     });
 };
+
+export function addToCart(item) {
+    return {
+        type: 'ADD',
+        item: item
+    };
+  }
+  
+  export function removeFromCart(item) {
+    return {
+        type: 'REMOVE',
+        item: item
+    };
+  }

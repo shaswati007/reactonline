@@ -4,6 +4,7 @@ import {Route, Link, BrowserRouter} from "react-router-dom";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {getProductDetail} from "../actions";
+import { addToCart } from '../actions/index';
 
 
 class PDP extends Component {
@@ -40,7 +41,7 @@ class PDP extends Component {
                                         Price : {pdpList.price[0].value}{" "}
                                         {pdpList.price[0].currency}
                                     </p>
-                                    <button>Add to Cart</button>
+                                    <button  onClick={() => this.props.addToCart(pdpList)}>Add to Cart</button>
                                 </div>
                             );
                         })}
@@ -54,13 +55,19 @@ class PDP extends Component {
 const mapStateToProps = state => {
     return {
         productDetail: state.fashion.productDetail,
+        cartDetail: state.fashion.cartDetail
     }
 };
 
 const mapActionsToProps = dispatch => {
     return bindActionCreators({
         getDetails: getProductDetail
-    }, dispatch);
+    }, 
+    {
+        addToCart: pdpList => dispatch(addToCart(pdpList))
+    },dispatch);
+    
 };
+
 
 export default connect(mapStateToProps, mapActionsToProps)(PDP);
