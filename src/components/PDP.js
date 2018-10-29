@@ -3,10 +3,15 @@ import {Route, Link, BrowserRouter} from "react-router-dom";
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {getProductDetail} from "../actions";
+import {getProductDetail, addToCart} from "../actions";
 
 
 class PDP extends Component {
+
+    addItemToCart = (item) => {
+        this.props.addToCart(item);
+        this.props.history.push('/cart');
+    };
 
     componentDidUpdate(prevProps) {
         let currentId = this.props.match.params.id;
@@ -40,7 +45,7 @@ class PDP extends Component {
                                         Price : {pdpList.price[0].value}{" "}
                                         {pdpList.price[0].currency}
                                     </p>
-                                    <button>Add to Cart</button>
+                                    <button onClick={() => this.addItemToCart(pdpList)}>Add to Cart</button>
                                 </div>
                             );
                         })}
@@ -54,13 +59,16 @@ class PDP extends Component {
 const mapStateToProps = state => {
     return {
         productDetail: state.fashion.productDetail,
+        cartDetail: state.fashion.cartDetail
     }
 };
 
 const mapActionsToProps = dispatch => {
     return bindActionCreators({
-        getDetails: getProductDetail
-    }, dispatch);
+        getDetails: getProductDetail,
+        addToCart: addToCart
+    }, dispatch)
 };
+
 
 export default connect(mapStateToProps, mapActionsToProps)(PDP);

@@ -8,7 +8,6 @@ class SubListMenu extends Component {
     return(
        <React.Fragment>
            {subBelow && subBelow.map(subl => {
-             {console.log(subBelow)}
              return (
                
                 <li className="dropdown-item dropdown" key={subl.uniqueID}><Link to = {`/Apparel/${category}/${subl.name}/${subl.uniqueID}`}>{subl.name}</Link></li>
