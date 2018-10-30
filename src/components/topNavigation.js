@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {getNavbar} from "../actions";
 import {Link} from "react-router-dom";
-
+import Cart from "./Cart";
 
 class Navigation extends Component {
 
@@ -46,7 +46,12 @@ class Navigation extends Component {
                     </ul>
 
                 </div>
-                <div className="shopping-cart"><i className="fas fa-shopping-cart user-account-logo"></i><Link to={`/cart`}>Cart </Link></div>
+               <div className="dropdown">
+                <div className="shopping-cart dropbtn"><i className="fas fa-shopping-cart user-account-logo"></i>Cart</div>
+                <div className="dropdown-content">
+                   <Cart />
+                </div>
+                </div>
             </nav>
 
         )

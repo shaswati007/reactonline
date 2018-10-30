@@ -10,7 +10,7 @@ import Banner from "./components/Banner";
 import PLPMenu from "./components/PLPMenu";
 import PDP from "./components/PDP";
 import Home from "./components/Home";
-import Cart from "./components/Cart";
+import CartList from "./components/CartList";
 
 
 
@@ -32,7 +32,7 @@ class Main extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/Apparel/:category/:subCategory/:id" component={PLPMenu} />
           <Route path="/Apparel/:product/:id" component={PDP} />
-          <Route path= "/cart" component ={Cart} />
+          <Route path ="/cart" component={CartList} />
           <Route path="/Banner" component={Banner} />
           <Route path="/Footer" component={Footer} />
         </Switch>

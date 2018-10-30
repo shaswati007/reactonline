@@ -3,7 +3,10 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {removeFromCart} from '../actions/index';
 import {Link} from "react-router-dom";
-class Cart extends Component {
+
+
+
+class CartList extends Component {
     render() {
         /**
          * this.props.cart is populated through the redux store and mapStateToProps
@@ -38,7 +41,6 @@ class Cart extends Component {
                     {
                         cartList
                     }
-                 <button class="btn btn-primary float-right"><Link to={`/cart`}>View Cart</Link></button>
                 </div>
             </div>) : (
                     <p>Your cart is empty</p>
@@ -59,4 +61,4 @@ const mapDispatchToProps = (dispatch) => {
     }, dispatch)
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default connect(mapStateToProps, mapDispatchToProps)(CartList);

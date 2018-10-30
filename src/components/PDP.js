@@ -10,7 +10,7 @@ class PDP extends Component {
 
     addItemToCart = (item) => {
         this.props.addToCart(item);
-        this.props.history.push('/cart');
+        this.props.history.push();
     };
 
     componentDidUpdate(prevProps) {
