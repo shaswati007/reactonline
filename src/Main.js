@@ -25,7 +25,6 @@ class Main extends Component {
     return (
       <div>
 
-        
         <Navigation />
 
         <Switch>
