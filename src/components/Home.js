@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 import Footer from "./Footer";
 import Banner from "./Banner";
 import PLPMenu from "./PLPMenu";
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {login} from '../actions';
 
 
 class Home extends Component {
@@ -14,9 +11,13 @@ class Home extends Component {
 
         return (
             <div>
+<<<<<<< HEAD
                 <button style={{backgroundColor: 'blue'}} onClick={(e) => this.props.login()}>Login</button>
                 <Banner/>
                 
+=======
+                <Banner/>
+>>>>>>> 1c29b8cace9469271063cc49484385cc565fa643
                 <Footer/>
             </div>
         )
@@ -25,16 +26,4 @@ class Home extends Component {
 
 }
 
-const mapStateToProps = (state) => {
-    return {
-        loginResponse: state.fashion.loginResponse
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        login: login
-    }, dispatch)
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;
