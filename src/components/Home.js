@@ -14,8 +14,9 @@ class Home extends Component {
 
         return (
             <div>
-                <Banner/>
                 <button style={{backgroundColor: 'blue'}} onClick={(e) => this.props.login()}>Login</button>
+                <Banner/>
+                
                 <Footer/>
             </div>
         )
