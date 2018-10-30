@@ -4,7 +4,8 @@ export const GET_NAVBAR = "GET_NAVBAR";
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const GET_PRODUCT_DETAIL = "GET_PRODUCT_DETAIL";
 export const ADD_CART = "ADD_CART";
-export const REMOVE_CART = "REMOVE_CART"
+export const REMOVE_CART = "REMOVE_CART";
+export const LOGIN = "LOGIN";
 
 export const BASE_API_URL = "http://localhost:3030";
 
@@ -49,3 +50,19 @@ export function removeFromCart(cartList, id) {
         payload: cartList.filter(i => i.uniqueID != id)
     };
 }
+
+export const login = () => {
+    return axios.post("https://149.129.128.3:5443/wcs/resources/store/1/guestidentity", {}).then(res => {
+        console.log(res);
+        return {
+            type: LOGIN,
+            payload: {}
+        }
+    }).catch(e => {
+        console.log(e);
+        return {
+            type: LOGIN,
+            payload: {}
+        }
+    });
+};
