@@ -1,6 +1,6 @@
-import {GET_NAVBAR, GET_PRODUCTS, GET_PRODUCT_DETAIL, ADD_CART, REMOVE_CART} from "../actions";
+import {GET_NAVBAR, GET_PRODUCTS, GET_PRODUCT_DETAIL, ADD_CART, REMOVE_CART, LOGIN} from "../actions";
 
-const INITIAL_STATE = {navbar: [], products: [], productDetail: [], cartDetail: []};
+const INITIAL_STATE = {navbar: [], products: [], productDetail: [], cartDetail: [], loginResponse: {}};
 
 export default function (state = INITIAL_STATE, action) {
     switch (action.type) {
@@ -30,7 +30,12 @@ export default function (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 cartDetail: action.payload
-            }
+            };
+        case LOGIN:
+            return {
+                ...state,
+                loginResponse: action.payload
+            };
 
         default:
             return state;
