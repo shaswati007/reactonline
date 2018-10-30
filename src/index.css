@@ -21,6 +21,12 @@ img{
 }
 
 
+.cart-container{
+  display: inline-flex;
+  height: 115px;
+}
+
+
 .pdp{
 
   background-color: #ddd;
