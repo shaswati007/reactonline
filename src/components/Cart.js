@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {removeFromCart} from '../actions/index';
 import {Link} from "react-router-dom";
+
 class Cart extends Component {
     render() {
         /**
@@ -23,7 +24,7 @@ class Cart extends Component {
                                 </p>
                                 <button onClick={() => this.props.removeFromCart(this.props.cart, item.uniqueID)}>Remove
                                 </button>
-                                
+
                             </div>
                         );
                     })}
@@ -33,14 +34,14 @@ class Cart extends Component {
         return (
             this.props.cart.length > 0 ?
                 (<div>
-                <p>Items in the Cart</p>
-                <div className="cart">
-                    {
-                        cartList
-                    }
-                 <button class="btn btn-primary float-right"><Link to={`/cart`}>View Cart</Link></button>
-                </div>
-            </div>) : (
+                    <p>Items in the Cart</p>
+                    <div className="cart">
+                        {
+                            cartList
+                        }
+                        <button className="btn btn-primary float-right"><Link to={`/cart`}>View Cart</Link></button>
+                    </div>
+                </div>) : (
                     <p>Your cart is empty</p>
                 )
         );
