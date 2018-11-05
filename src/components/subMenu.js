@@ -13,7 +13,7 @@ class SubMenu extends Component {
 
                     <li key={sub.uniqueID} className="dropdown-item dropdown" >
 
-                        <a className="dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{sub.name}</a>
+                        <a className="dropdown-toggle"  id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{sub.name}</a>
 
                         {
                             <ul className="" aria-labelledby="navbarDropdown2">

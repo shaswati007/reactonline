@@ -16,7 +16,7 @@ class Cart extends Component {
                     {this.props.cart.map(item => {
                         return (
                             <div key={item.uniqueID} className="col-md-2 cart-container">
-                                <img src={picUrl + item.thumbnail}/>
+                                <img src={picUrl + item.thumbnail} alt="mini-cart"/>
                                 <p>
                                     Price : {item.price[0].value}{" "}
                                     {item.price[0].currency}
@@ -38,7 +38,7 @@ class Cart extends Component {
                     {
                         cartList
                     }
-                 <button class="btn btn-primary float-right"><Link to={`/cart`}>View Cart</Link></button>
+                 <button className="btn btn-primary float-right"><Link to={`/cart`}>View Cart</Link></button>
                 </div>
             </div>) : (
                     <p>Your cart is empty</p>

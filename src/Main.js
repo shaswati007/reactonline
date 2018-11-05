@@ -18,20 +18,43 @@ import {login} from "./actions";
 
 class Main extends Component {
 
+    componentDidMount() {
+        this.props.login;
+        console.log(this.props)
+    }
+    
+
+
+     login() {
+        // for all items in state
+        for (let WCToken in this.props.login()) {
+          // if the key exists in localStorage
+          if (localStorage.hasOwnProperty(WCToken)) {
+            // get the key's value from localStorage
+            let value = localStorage.getItem(WCToken);
+    
+            // parse the localStorage string and setState
+            try {
+              value = JSON.parse(value);
+              this.setState({ [WCToken]: value });
+            } catch (e) {
+              // handle empty string
+              this.setState({ [WCToken]: value });
+            }
+          }
+        }
+      }
+
 
     render() {
 
 
         return (
             <div>
+                <button className=" float-right" onClick={(e) => this.props.login()}>Login in as Guest</button>
 
-<<<<<<< HEAD
         <Navigation />
-=======
-                <button style={{backgroundColor: 'blue'}} onClick={(e) => this.props.login()}>Login</button>
-                <Navigation/>
->>>>>>> 1c29b8cace9469271063cc49484385cc565fa643
-
+                
                 <Switch>
                     <Route exact path="/" component={Home}/>
                     <Route path="/Apparel/:category/:subCategory/:id" component={PLPMenu}/>

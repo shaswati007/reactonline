@@ -1,6 +1,4 @@
 import React, {Component} from "react";
-import {Route, Link, BrowserRouter} from "react-router-dom";
-
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {getProductDetail, addToCart} from "../actions";

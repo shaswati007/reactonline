@@ -47,12 +47,12 @@ export function addToCart(item) {
 export function removeFromCart(cartList, id) {
     return {
         type: REMOVE_CART,
-        payload: cartList.filter(i => i.uniqueID != id)
+        payload: cartList.filter(i => i.uniqueID !== id)
     };
 }
 
 export const login = () => {
-    return axios.post("https://149.129.128.3:5443/wcs/resources/store/1/guestidentity", {}).then(res => {
+    return axios.post(BASE_API_URL + "/guestidentity", {}).then(res => {
         console.log(res);
         return {
             type: LOGIN,
