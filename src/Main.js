@@ -18,6 +18,7 @@ import {login} from "./actions";
 
 class Main extends Component {
 
+<<<<<<< HEAD
     componentDidMount() {
         this.props.login;
         console.log(this.props)
@@ -45,16 +46,25 @@ class Main extends Component {
         }
       }
 
+=======
+>>>>>>> 611412d982131b4484a2b82880fe00e2beea5004
 
     render() {
 
 
         return (
             <div>
+<<<<<<< HEAD
                 <button className=" float-right" onClick={(e) => this.props.login()}>Login in as Guest</button>
 
         <Navigation />
                 
+=======
+
+                <button className="" onClick={(e) => this.props.login()}>Login in as Guest</button>
+                <Navigation/>
+
+>>>>>>> 611412d982131b4484a2b82880fe00e2beea5004
                 <Switch>
                     <Route exact path="/" component={Home}/>
                     <Route path="/Apparel/:category/:subCategory/:id" component={PLPMenu}/>
@@ -63,12 +73,22 @@ class Main extends Component {
                     <Route path="/Banner" component={Banner}/>
                     <Route path="/Footer" component={Footer}/>
                 </Switch>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 611412d982131b4484a2b82880fe00e2beea5004
 
+            </div>
+
+<<<<<<< HEAD
             </div>
 
         )
 
+=======
+        )
+
+>>>>>>> 611412d982131b4484a2b82880fe00e2beea5004
     }
 
 
