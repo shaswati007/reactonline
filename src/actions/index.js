@@ -6,10 +6,7 @@ export const GET_PRODUCT_DETAIL = "GET_PRODUCT_DETAIL";
 export const ADD_CART = "ADD_CART";
 export const REMOVE_CART = "REMOVE_CART";
 export const LOGIN = "LOGIN";
-<<<<<<< HEAD
-=======
 
->>>>>>> 611412d982131b4484a2b82880fe00e2beea5004
 
 export const BASE_API_URL = "http://localhost:3030";
 
@@ -50,7 +47,7 @@ export function addToCart(item) {
         'WCToken': window.localStorage.getItem('WCToken'),
         'WCTrustedToken': window.localStorage.getItem('WCTrustedToken')
     }
-    axios.post("https://149.129.128.3:5443/wcs/resources/store/1/cart", {
+    axios.post(BASE_API_URL + "/cart", {
         orderItem: [
             {
                 productId: item.uniqueID, //working for 12262
@@ -68,18 +65,14 @@ export function addToCart(item) {
 export function removeFromCart(cartList, id) {
     return {
         type: REMOVE_CART,
-        payload: cartList.filter(i => i.uniqueID !== id)
+        payload: cartList.filter(i => i.uniqueID != id)
     };
 }
 
 export const login = () => {
     return axios.post(BASE_API_URL + "/guestidentity", {}).then(res => {
-<<<<<<< HEAD
-        console.log(res);
-=======
         window.localStorage.setItem("WCToken", res.data.express.WCToken)
         window.localStorage.setItem("WCTrustedToken", res.data.express.WCTrustedToken)
->>>>>>> 611412d982131b4484a2b82880fe00e2beea5004
         return {
             type: LOGIN,
             payload: {}
@@ -91,8 +84,4 @@ export const login = () => {
             payload: {}
         }
     });
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> 611412d982131b4484a2b82880fe00e2beea5004
