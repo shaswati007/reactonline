@@ -47,14 +47,16 @@ export function addToCart(item) {
         'WCToken': window.localStorage.getItem('WCToken'),
         'WCTrustedToken': window.localStorage.getItem('WCTrustedToken')
     }
-    axios.post(BASE_API_URL + "/cart", {
-        orderItem: [
+    var args = {
+        "orderItem": [
             {
-                productId: item.uniqueID, //working for 12262
-                quantity: '1'
+                "productId": "12262",//item.uniqueID, //working for 12262
+                "quantity": "1"
             }
         ]
-    }, {headers: headers}).then(res => console.log(res))
+    };
+    var data = {headers: headers, data: args};
+    axios.post(BASE_API_URL + "/cart", data).then(res => console.log(res))
         .catch(err => console.log(err));
     return {
         type: ADD_CART,
