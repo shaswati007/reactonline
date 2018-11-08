@@ -51,7 +51,7 @@ export function addToCart(item) {
     var args = {
         "orderItem": [
             {
-                "productId": "12262", //working for 12262
+                "productId": "12262",//item.uniqueID, //working for 12262
                 "quantity": "1"
             }
         ]
