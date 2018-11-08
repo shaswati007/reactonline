@@ -51,7 +51,7 @@ export function addToCart(item) {
     var args = {
         "orderItem": [
             {
-                "productId": item.uniqueID, //working for 12262
+                "productId": "12262", //working for 12262
                 "quantity": "1"
             }
         ]
@@ -83,12 +83,16 @@ export function viewCart(item) {
     }
 
     var data = {headers: headers};
-    axios.get(BASE_API_URL + "/viewcart", data).then(res => console.log(res))
+    return axios.post(BASE_API_URL + "/viewcart", data).then(res => {
+            console.log(res)
+            return {
+                type: VIEW_CART,
+                payload: res.data.express.orderItem
+            };
+        }
+    )
         .catch(err => console.log(err));
-    return {
-        type: VIEW_CART,
-        payload: item
-    };
+
 }
 
 export const login = () => {
