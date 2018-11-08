@@ -5,6 +5,7 @@ export const GET_PRODUCTS = "GET_PRODUCTS";
 export const GET_PRODUCT_DETAIL = "GET_PRODUCT_DETAIL";
 export const ADD_CART = "ADD_CART";
 export const REMOVE_CART = "REMOVE_CART";
+export const VIEW_CART = "VIEW_CART"
 export const LOGIN = "LOGIN";
 
 
@@ -50,7 +51,7 @@ export function addToCart(item) {
     var args = {
         "orderItem": [
             {
-                "productId": "12262",//item.uniqueID, //working for 12262
+                "productId": item.uniqueID, //working for 12262
                 "quantity": "1"
             }
         ]
@@ -67,7 +68,26 @@ export function addToCart(item) {
 export function removeFromCart(cartList, id) {
     return {
         type: REMOVE_CART,
-        payload: cartList.filter(i => i.uniqueID != id)
+        payload: cartList.filter(i => i.uniqueID !== id)
+    };
+}
+
+export function viewCart(item) {
+
+    console.log(window.localStorage.getItem('WCToken'))
+    console.log(window.localStorage.getItem('WCTrustedToken'))
+    var headers = {
+        'Content-Type': 'application/json',
+        'WCToken': window.localStorage.getItem('WCToken'),
+        'WCTrustedToken': window.localStorage.getItem('WCTrustedToken')
+    }
+
+    var data = {headers: headers};
+    axios.get(BASE_API_URL + "/viewcart", data).then(res => console.log(res))
+        .catch(err => console.log(err));
+    return {
+        type: VIEW_CART,
+        payload: item
     };
 }
 

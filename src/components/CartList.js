@@ -8,10 +8,7 @@ import {removeFromCart} from '../actions/index';
 
 class CartList extends Component {
     render() {
-        /**
-         * this.props.cart is populated through the redux store and mapStateToProps
-         * this.props.removeFromCart is added through mapDispatchToProps
-         */
+        
         const picUrl = "https://149.129.128.3:8443";
         const cartList = (
             <div className="container">
@@ -24,6 +21,7 @@ class CartList extends Component {
                                     Price : {item.price[0].value}{" "}
                                     {item.price[0].currency}
                                 </p>
+                                <p>{item.orderId}</p>
                                 <button onClick={() => this.props.removeFromCart(this.props.cart, item.uniqueID)}>Remove
                                 </button>
                                 
@@ -51,7 +49,7 @@ class CartList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        cart: state.fashion.cartDetail
+        cart: state.fashion.orderDetail
     };
 };
 

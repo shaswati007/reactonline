@@ -3,7 +3,7 @@ import SubMenu from './subMenu';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {getNavbar} from "../actions";
-import Cart from "./Cart";
+import MiniShoppingCart from "./miniShoppingCart";
 
 class Navigation extends Component {
 
@@ -48,7 +48,7 @@ class Navigation extends Component {
                <div className="dropdown-cart">
                 <div className="shopping-cart dropbtn"><i className="fas fa-shopping-cart user-account-logo"></i>Cart</div>
                 <div className="dropdown-content">
-                   <Cart />
+                   <MiniShoppingCart />
                 </div>
                 </div>
             </nav>
