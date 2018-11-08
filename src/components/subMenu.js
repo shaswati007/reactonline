@@ -6,14 +6,14 @@ class SubMenu extends Component {
     render() {
         const { below } = this.props;
         //console.log(below)
-        return below.map(sub => {
+        return below.map((sub, i) => {
             return (
 
-                <React.Fragment>
+                <React.Fragment key={i}>
 
                     <li key={sub.uniqueID} className="dropdown-item dropdown" >
 
-                        <a className="dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{sub.name}</a>
+                        <a className="dropdown-toggle"  id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{sub.name}</a>
 
                         {
                             <ul className="" aria-labelledby="navbarDropdown2">

@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import SubMenu from './subMenu';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {getNavbar} from "../actions";
-
+import Cart from "./Cart";
 
 class Navigation extends Component {
 
     componentDidMount() {
         this.props.getNavData();
     }
+    
 
     render() {
 
@@ -19,7 +19,7 @@ class Navigation extends Component {
         return (
 
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark mainmenu">
-                <a className="navbar-brand" href="#">iFashion</a>
+                <a className="navbar-brand" href="/">iFashion</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -44,6 +44,12 @@ class Navigation extends Component {
 
                     </ul>
 
+                </div>
+               <div className="dropdown-cart">
+                <div className="shopping-cart dropbtn"><i className="fas fa-shopping-cart user-account-logo"></i>Cart</div>
+                <div className="dropdown-content">
+                   <Cart />
+                </div>
                 </div>
             </nav>
 
