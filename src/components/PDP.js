@@ -9,13 +9,13 @@ class PDP extends Component {
     addItemToCart = (item) => {
         alert("Items are Added To Cart");
         this.props.addToCart(item);
-        this.props.history.push();
-        this.viewItemInCart();
+        this.props.history.push('/cart');
+        //this.viewItemInCart();
     };
 
     viewItemInCart = (item) =>{
-        this.props.viewCart(item);
-        this.props.history.push('/viewCart')
+       // this.props.viewCart(item);
+       // this.props.history.push('/viewCart')
     }
 
 

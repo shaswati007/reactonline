@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, withRouter } from 'react-router-dom';
 import Navigation from "./components/topNavigation";
 import Footer from "./components/Footer";
 import Banner from "./components/Banner";
@@ -61,4 +61,4 @@ const mapDispatchToProps = (dispatch) => {
     }, dispatch)
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
