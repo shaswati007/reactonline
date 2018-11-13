@@ -5,7 +5,8 @@ export const GET_PRODUCTS = "GET_PRODUCTS";
 export const GET_PRODUCT_DETAIL = "GET_PRODUCT_DETAIL";
 export const ADD_CART = "ADD_CART";
 export const REMOVE_CART = "REMOVE_CART";
-export const VIEW_CART = "VIEW_CART"
+export const VIEW_CART = "VIEW_CART";
+export const PRE_CHECKOUT = "PRE_CHECKOUT";
 export const LOGIN = "LOGIN";
 
 
@@ -68,11 +69,11 @@ export function addToCart(item) {
 export function removeFromCart(cartList, id) {
     return {
         type: REMOVE_CART,
-        payload: cartList.filter(i => i.uniqueID !== id)
+        payload: cartList.filter(i => i.orderItemId!== id)
     };
 }
 
-export function viewCart(item) {
+export function viewCart() {
 
     console.log(window.localStorage.getItem('WCToken'))
     console.log(window.localStorage.getItem('WCTrustedToken'))
@@ -94,6 +95,31 @@ export function viewCart(item) {
         .catch(err => console.log(err));
 
 }
+
+
+export function preCheckout() {
+
+    console.log(window.localStorage.getItem('WCToken'))
+    console.log(window.localStorage.getItem('WCTrustedToken'))
+    var headers = {
+        'Content-Type': 'application/json',
+        'WCToken': window.localStorage.getItem('WCToken'),
+        'WCTrustedToken': window.localStorage.getItem('WCTrustedToken')
+    }
+
+    var data = {headers: headers};
+    return axios.post(BASE_API_URL + "/precheckout", data).then(res => {
+            console.log(res)
+            return {
+                type: VIEW_CART,
+                payload: res.data.express
+            };
+        }
+    )
+        .catch(err => console.log(err));
+
+}
+
 
 export const login = () => {
     return axios.post(BASE_API_URL + "/guestidentity", {}).then(res => {

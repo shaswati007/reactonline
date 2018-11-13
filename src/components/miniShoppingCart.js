@@ -5,6 +5,9 @@ import { removeFromCart, viewCart } from '../actions/index';
 import { Link } from "react-router-dom";
 
 class Cart extends Component {
+
+
+
     render() {
         /**
          * this.props.cart is populated through the redux store and mapStateToProps
@@ -15,7 +18,17 @@ class Cart extends Component {
                 <div className="row">
                     {this.props.cart.map(item => {
                         return (
-                           <p>Hello from Cart</p>
+                            <div key={item.orderItemId} className="col-md-2 cart-container">
+                                <p>
+                                    Price : {item.unitPrice}{" "}
+                                    {item.currency}
+                                </p>
+                                <p>{item.orderItemId}</p>
+                                <button onClick={() => this.props.removeFromCart(this.props.cart, item.orderItemId)}>
+                                    Remove
+                                </button>
+
+                            </div>
                         );
                     })}
                 </div>
@@ -29,7 +42,7 @@ class Cart extends Component {
                         {
                             cartList
                         }
-                        <button className="btn btn-primary float-right"><Link to={`/cart`}>View Cart</Link></button>
+                        <button className="btn btn-primary float-right "><Link to={`/cart`}>View Cart</Link></button>
                     </div>
                 </div>) : (
                     <p>Your cart is empty</p>

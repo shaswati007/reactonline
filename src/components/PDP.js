@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {getProductDetail, addToCart} from "../actions";
+import {getProductDetail, addToCart, viewCart} from "../actions";
 
 
 class PDP extends Component {
@@ -9,8 +9,14 @@ class PDP extends Component {
     addItemToCart = (item) => {
         alert("Items are Added To Cart");
         this.props.addToCart(item);
-        this.props.history.push('/cart');
+        this.props.history.push();
+        this.viewItemInCart();
     };
+
+    viewItemInCart = (item) =>{
+        this.props.viewCart(item);
+        this.props.history.push('/viewCart')
+    }
 
 
     componentDidUpdate(prevProps) {
@@ -68,6 +74,7 @@ const mapActionsToProps = dispatch => {
     return bindActionCreators({
         getDetails: getProductDetail,
         addToCart: addToCart,
+        viewCart : viewCart
     }, dispatch)
 };
 

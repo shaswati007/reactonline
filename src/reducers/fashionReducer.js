@@ -1,4 +1,4 @@
-import {GET_NAVBAR, GET_PRODUCTS, GET_PRODUCT_DETAIL, ADD_CART, REMOVE_CART, VIEW_CART, LOGIN} from "../actions";
+import {GET_NAVBAR, GET_PRODUCTS, GET_PRODUCT_DETAIL, ADD_CART, REMOVE_CART, VIEW_CART, PRE_CHECKOUT, LOGIN} from "../actions";
 
 const INITIAL_STATE = {
     navbar: [],
@@ -6,6 +6,7 @@ const INITIAL_STATE = {
     productDetail: [],
     cartDetail: [],
     viewCartDetail: [],
+    precheckout :[],
     loginResponse: {}
 };
 
@@ -45,6 +46,12 @@ export default function (state = INITIAL_STATE, action) {
                 ...state,
                 viewCartDetail: action.payload
             };
+
+        case PRE_CHECKOUT:
+        return {
+            ...state,
+            precheckout:action.payload
+        }
 
         case LOGIN:
             return {

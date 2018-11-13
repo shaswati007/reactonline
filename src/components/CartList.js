@@ -2,13 +2,21 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {removeFromCart} from '../actions/index';
-import {viewCart} from "../actions";
+import {viewCart,preCheckout} from "../actions";
+
+import {Link} from 'react-router-dom';
 
 
 class CartList extends Component {
 
     componentDidMount() {
         this.props.viewCart();
+    }
+
+    performPreCheckout = (item) => {
+        alert("Items preparing for checkout");
+        this.props.precheckout(item);
+        
     }
 
 
@@ -45,6 +53,7 @@ class CartList extends Component {
                         {
                             cartList
                         }
+                    <button onClick={() => this.props.performPreCheckout()} className="my-4 mr-3 float-right btn btn-warning"><Link to={`/shippingBilling`}>Proceed To Checkout <i className="far fa-arrow-alt-circle-right"></i></Link></button>
                     </div>
                 </div>) : (
                     <p>Your cart is empty</p>
@@ -55,14 +64,17 @@ class CartList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        cart: state.fashion.viewCartDetail
+        cart: state.fashion.viewCartDetail,
+        preCheckoutDetail: state.fashion.precheckout
+        
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         removeFromCart: removeFromCart,
-        viewCart: viewCart
+        viewCart: viewCart,
+        preCheckout:preCheckout
     }, dispatch)
 };
 

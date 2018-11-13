@@ -11,6 +11,7 @@ import PLPMenu from "./components/PLPMenu";
 import PDP from "./components/PDP";
 import Home from "./components/Home";
 import CartList from "./components/CartList";
+import ShippingBilling from "./components/shippingBilling";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {login} from "./actions";
@@ -33,6 +34,7 @@ class Main extends Component {
                     <Route path="/Apparel/:category/:subCategory/:id" component={PLPMenu}/>
                     <Route path="/Apparel/:product/:id" component={PDP}/>
                     <Route path="/cart" component={CartList}/>
+                    <Route path="/shippingBilling" component={ShippingBilling}/>
                     <Route path="/Banner" component={Banner}/>
                     <Route path="/Footer" component={Footer}/>
                 </Switch>
