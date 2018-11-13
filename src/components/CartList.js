@@ -16,6 +16,7 @@ class CartList extends Component {
     performPreCheckout = (item) => {
         alert("Items preparing for checkout");
         this.props.precheckout(item);
+        this.checkout();
         
     }
 
