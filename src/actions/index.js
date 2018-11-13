@@ -41,9 +41,8 @@ export const getProductDetail = (id) => {
 };
 
 export function addToCart(item) {
-
-    console.log(window.localStorage.getItem('WCToken'))
-    console.log(window.localStorage.getItem('WCTrustedToken'))
+    console.log(window.localStorage.getItem('WCToken'));
+    console.log(window.localStorage.getItem('WCTrustedToken'));
     var headers = {
         'Content-Type': 'application/json',
         'WCToken': window.localStorage.getItem('WCToken'),
@@ -58,12 +57,16 @@ export function addToCart(item) {
         ]
     };
     var data = {headers: headers, data: args};
-    axios.post(BASE_API_URL + "/cart", data).then(res => console.log(res))
+    return axios.post(BASE_API_URL + "/cart", data).then(res => {
+        console.log(res)
+            return {
+                type: ADD_CART,
+                payload: item
+            }
+        }
+    )
         .catch(err => console.log(err));
-    return {
-        type: ADD_CART,
-        payload: item
-    };
+
 }
 
 export function removeFromCart(cartList, id) {

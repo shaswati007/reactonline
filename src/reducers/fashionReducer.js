@@ -7,7 +7,8 @@ const INITIAL_STATE = {
     cartDetail: [],
     viewCartDetail: [],
     precheckout :[],
-    loginResponse: {}
+    loginResponse: {},
+    cartUpdated:false
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -32,7 +33,8 @@ export default function (state = INITIAL_STATE, action) {
         case ADD_CART:
             return {
                 ...state,
-                cartDetail: [...state.cartDetail, action.payload]
+                cartDetail: [...action.payload],
+                cartUpdated:true
             };
 
         case REMOVE_CART:
