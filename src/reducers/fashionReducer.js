@@ -1,4 +1,13 @@
-import {GET_NAVBAR, GET_PRODUCTS, GET_PRODUCT_DETAIL, ADD_CART, REMOVE_CART, VIEW_CART, PRE_CHECKOUT, LOGIN} from "../actions";
+import {
+    GET_NAVBAR,
+    GET_PRODUCTS,
+    GET_PRODUCT_DETAIL,
+    ADD_CART,
+    REMOVE_CART,
+    VIEW_CART,
+    PRE_CHECKOUT,
+    LOGIN
+} from "../actions";
 
 const INITIAL_STATE = {
     navbar: [],
@@ -6,9 +15,8 @@ const INITIAL_STATE = {
     productDetail: [],
     cartDetail: [],
     viewCartDetail: [],
-    precheckout :[],
-    loginResponse: {},
-    cartUpdated:false
+    precheckout: [],
+    loginResponse: {}
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -33,8 +41,7 @@ export default function (state = INITIAL_STATE, action) {
         case ADD_CART:
             return {
                 ...state,
-                cartDetail: [...action.payload],
-                cartUpdated:true
+                cartDetail: [...state.viewCartDetail, action.payload]
             };
 
         case REMOVE_CART:
@@ -50,10 +57,10 @@ export default function (state = INITIAL_STATE, action) {
             };
 
         case PRE_CHECKOUT:
-        return {
-            ...state,
-            precheckout:action.payload
-        }
+            return {
+                ...state,
+                precheckout: action.payload
+            };
 
         case LOGIN:
             return {

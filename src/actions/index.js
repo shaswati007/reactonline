@@ -58,7 +58,7 @@ export function addToCart(item) {
     };
     var data = {headers: headers, data: args};
     return axios.post(BASE_API_URL + "/cart", data).then(res => {
-        console.log(res)
+            console.log(res)
             return {
                 type: ADD_CART,
                 payload: item
@@ -72,7 +72,7 @@ export function addToCart(item) {
 export function removeFromCart(cartList, id) {
     return {
         type: REMOVE_CART,
-        payload: cartList.filter(i => i.orderItemId!== id)
+        payload: cartList.filter(i => i.orderItemId !== id)
     };
 }
 

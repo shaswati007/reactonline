@@ -11,17 +11,18 @@ class PDP extends Component {
         this.props.addToCart(item);
     };
 
-    viewItemInCart = (item) =>{
+    viewItemInCart = (item) => {
         this.props.viewCart();
     };
 
 
-    componentWillReceiveProps (newProps) {
-        if(newProps.cartUpdated !== this.props.cartUpdated){ //checking cart is updated or not || if updated calling view cart api
+    componentWillReceiveProps(newProps) {
+        if (newProps.cartDetail !== this.props.cartDetail) { //checking cart is updated or not || if updated calling view cart api
             this.viewItemInCart();
         }
     }
-        componentDidUpdate(prevProps) {
+
+    componentDidUpdate(prevProps) {
         let currentId = this.props.match.params.id;
         let previousId = prevProps.match.params.id;
         if (currentId !== previousId) {
@@ -68,8 +69,7 @@ const mapStateToProps = state => {
     return {
         productDetail: state.fashion.productDetail,
         cartDetail: state.fashion.cartDetail,
-        viewCartDetail: state.fashion.viewCartDetail,
-        cartUpdated:state.fashion.cartUpdated
+        viewCartDetail: state.fashion.viewCartDetail
     }
 };
 
@@ -77,7 +77,7 @@ const mapActionsToProps = dispatch => {
     return bindActionCreators({
         getDetails: getProductDetail,
         addToCart: addToCart,
-        viewCart : viewCart
+        viewCart: viewCart
     }, dispatch)
 };
 
